@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-depolyment
+  name: db-deployment
   namespace: kmerrell
   labels:
     app: db
