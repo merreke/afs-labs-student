@@ -213,7 +213,7 @@ def show_account():
 def show_locations():
     """Show local pickup locations"""
 
-    pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
+
     if os.environ["LOCATION_FEATURE_ENABLED"] == "True":
         pickups = db.session.query(Pickup).filter(Pickup.pickup_id > 1).all()
         return render_template("locations.html", pickups=pickups)
@@ -223,10 +223,11 @@ def show_locations():
 
 @app.route('/cart')
 def show_cart():
+    return render_template("cart.html", flag=os.environ["LOCATION_FEATURE_ENABLED"])
     """Query session for cart contents and display results"""
     
     # send flag for feature toggle to cart page
-    return render_template("cart.html", flag=os.environ["LOCATION_FEATURE_ENABLED"])
+    
 
 
 @app.route('/cart', methods=['POST'])
