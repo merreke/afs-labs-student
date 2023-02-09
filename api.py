@@ -5,7 +5,7 @@ import stripe
 from model import db, Customer, Order
 import arrow
 
-
+## adding a something here
 def split_params(param_list):
     params = []
     for param in param_list:
